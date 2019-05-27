@@ -966,7 +966,7 @@ __NOTE(S)__:
 2. Accessing https://sysadmin-console-01.flujab.htb:
    - Landing Page: 
      
-     ![Direct IP Address not allowed](./screenshots/)
+     ![Direct IP Address not allowed](./screenshots/443_sysadmin_console_01.png)
 
    __NOTE(S)__:
    - What if the page is requested over __*port 8080*__
